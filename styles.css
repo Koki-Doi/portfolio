@@ -1,0 +1,292 @@
+/* 全体のスタイル設定 */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: white;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: black;
+}
+
+/* ヘッダーセクションのスタイルと固定 */
+header {
+    width: 100%;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+header .hero {
+    padding: 3rem 1rem;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-container {
+    width: 100%;
+    height: 2px; /* シークバーの高さを調整 */
+    background: #555;
+    position: relative;
+}
+
+.progress-bar {
+    height: 100%;
+    background: #0073e6;
+    width: 0;
+}
+
+/* タイトルとテキストのアニメーション設定 */
+header h1, .section h2, .section p {
+    margin: 0;
+    position: relative;
+    display: inline-block;
+    opacity: 0;
+    animation: fadeInText 5s forwards, moveText 5s forwards;
+}
+
+/* ナビゲーションのスタイル */
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+nav ul li {
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+/* セクションのスタイル */
+.section {
+    padding: 6rem 1rem 4rem 1rem; /* ヘッダー固定分のスペースを追加 */
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.section h2 {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.section p, .section ul {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.section img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.profile-photo {
+    width: 150px;
+    height: auto;
+    border-radius: 50%;
+}
+
+/* テキストのアニメーション */
+@keyframes fadeInText {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes moveText {
+    0% {
+        transform: translateY(100%);
+    }
+    50% {
+        transform: translateY(-10%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.fade {
+    opacity: 1;
+    animation: fadeInText 1s forwards, moveText 1s forwards;
+}
+
+#animated-text span {
+    opacity: 0;
+}
+
+/* 背景画像を使用したセクション */
+.background-section {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    text-align: center;
+    position: relative;
+    padding: 6rem 1rem 4rem 1rem; /* 他のセクションと同じ高さに設定 */
+    height: 500px; /* 高さを調整 */
+}
+
+.background-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.background-section h2 {
+    position: relative;
+    z-index: 1;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* その他のスタイル */
+.db_profile_box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 2rem 0;
+}
+
+.db_profile_box_r {
+    flex: 1;
+}
+
+.db_profile_img {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.db_profile_img img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.db_profile_box_l {
+    flex: 2;
+    padding-left: 2rem;
+}
+
+.item_table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    border: 1px solid #ddd;
+}
+
+.item_table th, .item_table td {
+    padding: 0.5rem;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid #ddd;
+}
+
+.actor_name {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.actor_hurigana {
+    font-size: 1rem;
+    color: #777;
+}
+
+.actor_name strong {
+    font-size: 1.75rem;
+}
+
+.profile-container {
+    width: 80%;
+    margin: 50px auto;
+    background-color: #333;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-header {
+    background-color: #444;
+    padding: 10px 20px;
+    border-bottom: 2px solid #0073e6;
+}
+
+.profile-header h1 {
+    margin: 0;
+    font-size: 24px;
+    color: white;
+}
+
+.profile-content {
+    display: flex;
+    padding: 20px;
+}
+
+.profile-info {
+    flex: 2;
+    margin-right: 20px;
+}
+
+.profile-info table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.profile-info th, .profile-info td {
+    padding: 10px;
+    border: 1px solid #555;
+    text-align: left;
+}
+
+.profile-info th {
+    background-color: #555;
+}
+
+.profile-info td {
+    background-color: #333;
+}
+
+.english-name {
+    color: #0073e6;
+    font-size: 0.9em;
+    display: block;
+}
+
+.profile-image {
+    flex: 1;
+    text-align: center;
+}
+
+.profile-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
