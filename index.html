@@ -5,76 +5,94 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>土井 仰輝のポートフォリオ</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Helvetica:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
         <div class="hero">
             <h1 id="animated-text">土井 仰輝のポートフォリオ</h1>
-            <nav>
-                <ul>
-                    <li><a href="#top">Top</a></li>
-                    <li><a href="#productions">Productions</a></li>
-                    <li><a href="#activities">Student Activities</a></li>
-                    <li><a href="#about">自己紹介</a></li>
-                    <li><a href="#career">経歴</a></li>
-                    <li><a href="#skills">技術スキル</a></li>
-                    <li><a href="#qualifications">資格</a></li>
-                    <li><a href="#motivation">楽器開発を目指したきっかけ</a></li>
-                </ul>
-            </nav>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
+        <nav>
+            <ul id="nav-menu">
+                <li><a href="#top">Top</a></li>
+                <li><a href="#productions">Productions</a></li>
+                <li><a href="#activities">Student Activities</a></li>
+                <li><a href="#about">自己紹介</a></li>
+                <li><a href="#career">経歴</a></li>
+                <li><a href="#skills">技術スキル</a></li>
+                <li><a href="#qualifications">資格</a></li>
+                <li><a href="#motivation">楽器開発を目指したきっかけ</a></li>
+            </ul>
+        </nav>
         <div class="progress-container">
             <div class="progress-bar"></div>
         </div>
     </header>
 
-    <section id="top" class="section">
-        <h2>Top</h2>
-        <div class="profile-container">
-            <div class="profile-header">
-                <h1>プロフィール</h1>
-            </div>
-            <div class="profile-content">
-                <div class="profile-info">
-                    <table>
-                        <tr>
-                            <th>名前</th>
-                            <td>土井 仰輝 <span class="english-name">Koki Doi</span></td>
-                        </tr>
-                        <tr>
-                            <th>誕生日</th>
-                            <td>5月8日</td>
-                        </tr>
-                        <tr>
-                            <th>出身地</th>
-                            <td>大阪府</td>
-                        </tr>
-                        <tr>
-                            <th>趣味・特技</th>
-                            <td>エレキギターの修理・制作、プログラミング、電子楽器の開発</td>
-                        </tr>
-                        <tr>
-                            <th>来歴・受賞歴</th>
-                            <td>
-                                <p>大阪市立都島工業高等学校卒業</p>
-                                <p>近畿大学工業高等専門学校卒業</p>
-                            </td>
-                        </tr>
-                    </table>
+    <section id="cord" class="section">
+        <div class="container">
+            <div class="card">
+                <div class="front">
+                    <div class="content">
+                        <div class="text">
+                            <h1>キヤノン株式会社</h1>
+                            <p>デジタルプリンティング事業本部</p>
+                            <p>デジタルプリンティング第一生産統括センター</p>
+                            <p>デジタルプリンティング材料生産統括第一部</p>
+                            <p>デジタルプリンティング化成品技術11課</p>
+                            <h2>土井　仰輝</h2>
+                            <div class="address">
+                                <p>取手事業所</p>
+                                <p>〒302-8501 茨城県取手市白山7-5-1</p>
+                                <p>Tel. 0297-77-2111 / 20850 (内線)</p>
+                                <p>E-mail doi.koki@mail.canon</p>
+                            </div>
+                        </div>
+                        <div class="photo">
+                            <img src="./photo/face_photo.jpg" alt="顔写真" class="face-photo">
+                        </div>
+                    </div>
                 </div>
-                <div class="profile-image">
-                    <img src="./photo/face_photo.jpg" alt="Koki Doi">
+                <div class="back">
+                    <div class="content">
+                        <div class="text">
+                            <h1>CANON　INC.</h1>
+                            <p>Digital Printing Chemical Products Engineering Dept. 11</p>
+                            <p>Digital Printing Material Production Management Div. 1</p>
+                            <p>Digital Printing Manufacturing Management Center 1</p>
+                            <p>Digital Printing Business Operations</p>
+                            <h2>Koki　Doi</h2>
+                            <div class="address">
+                                <p>Toride Plant</p>
+                                <p>5-1, Hakusan 7-chome, Toride,</p>
+                                <p>Ibaraki 302-8501, Japan</p>
+                                <p>Phone +81-297-77-2111 / 20850 (Ext.)</p>
+                                <p>E-mail doi.koki@mail.canon</p>
+                            </div>
+                        </div>
+                        <div class="photo">
+                            <img src="./photo/face_photo.jpg" alt="顔写真" class="face-photo">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
+
+    
 
     <section id="productions" class="section background-section" style="background-image: url('./photo/Productions.jpg');">
         <h2>Productions</h2>
     </section>
 
     <section id="activities" class="section background-section" style="background-image: url('./photo/Student_Activities.png');">
-        <h2>Student Activities</h2>
+        <h2>Student sActivities</h2>
     </section>
 
     <section id="about" class="section">
@@ -164,7 +182,8 @@
     </section>
 
     <section id="motivation" class="section">
-        <h2>楽器開発を目指したきっかけ</h2>
+        <h2>楽器
+開発を目指したきっかけ</h2>
         <div class="profile-container">
             <div class="profile-content">
                 <div class="profile-info">
@@ -185,7 +204,7 @@
     </section>
 
     <footer>
-        <p>Copyright © 2023 Doi Koki All Rights Reserved.</p>
+        <p>Copyright © 2024 Doi Koki All Rights Reserved.</p>
     </footer>
 
     <script src="script.js"></script>
