@@ -26,9 +26,9 @@ input {
 /*————————————————————————————————*/
 html {
   height: 100%;
-  background-color: rgb(15, 30, 60);
-  background-image: linear-gradient(to top, rgb(10, 20, 40) 0%, rgb(20, 40, 80) 100%);
+  background-color: #1E1E1E;
 }
+
 input {
   font-family: "Orbitron", sans-serif;
   font-weight: 900;
@@ -36,22 +36,23 @@ input {
   width: 100%;
   height: 50px;
   border-radius: 25px;
-  color: rgb(200, 210, 240);
-  -webkit-text-fill-color: rgb(200, 210, 240);
-  background-color: rgb(10, 20, 40);
+  color: #FFFFFF;
+  background-color: #3C3F41;
+  border: 2px solid #606060;
   font-size: 40px;
 }
 input::placeholder {
   font-family: "Orbitron", sans-serif;
-  color: rgb(20, 40, 80);
-  -webkit-text-fill-color: rgb(20, 40, 80);
+  color: #888888;
 }
+
 form {
   text-align: center;
   margin: calc(50vh - 100px) auto 0;
   max-width: 400px;
   width: 90vw;
 }
+
 p {
   word-wrap: break-word;
   overflow-wrap: break-word;
@@ -59,6 +60,123 @@ p {
   font-weight: 600;
   font-size: 20px;
   line-height: 40px;
-  color: rgb(200, 210, 240);
-  -webkit-text-fill-color: rgb(200, 210, 240);
+  color: #E0E0E0;
+}
+
+body {
+  background-color: #1E1E1E;
+}
+
+/*————————————————————————————————*/
+/* Glitch Effect */
+/*————————————————————————————————*/
+
+.glitch-text {
+  position: relative;
+  font-size: 2em;
+  font-weight: 900;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  display: inline-block;
+  margin: 0;
+  animation: glitch 1s infinite;
+  z-index: 1; /* スクリプトで生成されるspan要素の上に擬似要素を重ねる */
+}
+
+.glitch-text::before, .glitch-text::after {
+  content: attr(data-text); /* 擬似要素にテキストを表示 */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  z-index: -1; /* 擬似要素は文字列の後ろ */
+}
+
+.glitch-text::before {
+  left: 2px;
+  text-shadow: -2px 0 rgb(0, 26, 255);
+  clip: rect(24px, 550px, 90px, 0);
+  animation: glitch-anim-2 2s infinite linear alternate-reverse;
+}
+
+.glitch-text::after {
+  left: -2px;
+  text-shadow: -2px 0 rgb(0, 255, 13);
+  clip: rect(85px, 550px, 140px, 0);
+  animation: glitch-anim-1 1.5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch {
+  0% {
+    transform: none;
+    opacity: 1;
+  }
+  20% {
+    transform: skew(0.5deg, 0.5deg);
+    opacity: 0.75;
+  }
+  40% {
+    transform: none;
+    opacity: 1;
+  }
+  60% {
+    transform: skew(-0.5deg, -0.5deg);
+    opacity: 0.75;
+  }
+  80% {
+    transform: none;
+    opacity: 1;
+  }
+  100% {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+@keyframes glitch-anim-1 {
+  0% {
+    clip: rect(42px, 9999px, 44px, 0);
+  }
+  5% {
+    clip: rect(12px, 9999px, 18px, 0);
+  }
+  10% {
+    clip: rect(85px, 9999px, 140px, 0);
+  }
+  15% {
+    clip: rect(50px, 9999px, 55px, 0);
+  }
+  20% {
+    clip: rect(18px, 9999px, 25px, 0);
+  }
+  25% {
+    clip: rect(36px, 9999px, 41px, 0);
+  }
+  30% {
+    clip: rect(85px, 9999px, 140px, 0);
+  }
+  100% {
+    clip: rect(85px, 9999px, 140px, 0);
+  }
+}
+
+@keyframes glitch-anim-2 {
+  0% {
+    clip: rect(22px, 9999px, 55px, 0);
+  }
+  10% {
+    clip: rect(12px, 9999px, 30px, 0);
+  }
+  20% {
+    clip: rect(42px, 9999px, 44px, 0);
+  }
+  30% {
+    clip: rect(18px, 9999px, 40px, 0);
+  }
+  100% {
+    clip: rect(24px, 9999px, 90px, 0);
+  }
 }
