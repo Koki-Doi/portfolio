@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -12,7 +12,7 @@
   </head>
   <body>
     <form id="form">
-      <p id="message">Please enter your password.</p>
+      <p id="message" class="glitch-text" data-text="Please enter your password.">Please enter your password</p>
       <input type="password" placeholder="password" id="password">
     </form>
     <script>
@@ -32,13 +32,17 @@
           } else {
             const message = document.getElementById('message');
             const input = document.getElementById('password');
-            message.innerHTML = 'Wrong password! Try again.';
+            message.textContent = 'Wrong password! Try again.';
+            message.setAttribute('data-text', 'Wrong password! Try again.');
+            message.classList.add('glitch-text');
             input.value = '';
           }
         };
         xhr.onerror = function () {
           const message = document.getElementById('message');
-          message.innerHTML = 'Sorry, ERROR !';
+          message.textContent = 'Sorry, ERROR !';
+          message.setAttribute('data-text', 'Sorry, ERROR !');
+          message.classList.add('glitch-text');
         };
       }
       const form = document.getElementById('form');
@@ -46,6 +50,102 @@
         const password = document.getElementById('password').value;
         auth(password);
         event.preventDefault();
+      });
+
+      // Provided text animation script
+      document.addEventListener('DOMContentLoaded', () => {
+        const observerOptions = {
+          root: null,
+          rootMargin: '0px',
+          threshold: 0.1
+        };
+
+        const textElements = document.querySelectorAll('h1, h2, p.glitch-text');
+
+        const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              animateText(entry.target);
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        textElements.forEach(element => {
+          observer.observe(element);
+        });
+
+        function animateText(element) {
+          const targetText = element.textContent;
+          const chars = Array.from(targetText);
+          element.innerHTML = ""; // 一旦クリアしてからspanを追加
+          chars.forEach(char => {
+            const span = document.createElement('span');
+            span.textContent = char;
+            element.appendChild(span);
+          });
+
+          const totalShuffles = 20;
+          const initialShuffles = 13;
+          const initialInterval = 400 / initialShuffles;
+          const remainingShuffles = totalShuffles - initialShuffles;
+          const remainingTime = 250;
+
+          let shuffleCount = 0;
+          let spans = Array.from(element.querySelectorAll('span'));
+
+          function shuffle(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+              const j = Math.floor(Math.random() * (i + 1));
+              [array[i], array[j]] = [array[j], array[i]];
+            }
+          }
+
+          function randomColor(type) {
+            if (type === 'h1') {
+              return `rgb(255, ${Math.floor(Math.random() * 256)}, 0)`;
+            } else if (type === 'h2') {
+              return `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, 0)`;
+            } else {
+              return `rgb(0, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
+            }
+          }
+
+          const shuffleInterval = setInterval(() => {
+            shuffle(spans);
+            spans.forEach((span) => {
+              span.style.color = randomColor(element.tagName.toLowerCase());
+              span.style.opacity = 1;
+              element.appendChild(span);
+            });
+            shuffleCount++;
+            if (shuffleCount >= initialShuffles) {
+              clearInterval(shuffleInterval);
+
+              function slowShuffle() {
+                if (shuffleCount < totalShuffles) {
+                  shuffle(spans);
+                  spans.forEach((span) => {
+                    span.style.color = randomColor(element.tagName.toLowerCase());
+                    span.style.opacity = 1;
+                    element.appendChild(span);
+                  });
+                  shuffleCount++;
+                  const remainingShuffleInterval = remainingTime / remainingShuffles;
+                  setTimeout(slowShuffle, remainingShuffleInterval + (remainingShuffleInterval / remainingShuffles) * (shuffleCount - initialShuffles));
+                } else {
+                  targetText.split('').forEach((char, index) => {
+                    spans[index].textContent = char;
+                    spans[index].style.color = '#E0E0E0';
+                    spans[index].style.opacity = 1;
+                    element.appendChild(spans[index]);
+                  });
+                }
+              }
+              slowShuffle();
+            }
+          }, initialInterval);
+        }
       });
     </script>
   </body>
